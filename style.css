@@ -254,3 +254,21 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign); text-dec
 }
 
 .aff-px { position: absolute; width: 1px; height: 1px; border: 0; }
+
+/* ---- 画像(イラスト・写真、2026-10-03) ---- */
+.pic { margin: 24px 0; }
+.pic img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--contour); }
+.pic figcaption { margin-top: 6px; font-size: var(--fs-small); color: var(--ink-sub); }
+.pic figcaption a { color: var(--ink-sub); }
+.pic.tall { max-width: min(360px, 72%); }
+.pic.eyecatch { margin: 12px 0 28px; }
+.map-hero .inner { display: grid; gap: 8px 32px; align-items: center; }
+.map-hero .hero-art { margin: 8px 0 0; }
+.map-hero .hero-art img { border-radius: 16px; box-shadow: 0 1px 0 var(--contour); }
+@media (min-width: 860px) {
+  .map-hero .inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+  .map-hero .hero-art { margin: 0; }
+}
+.stops .has-thumb a { display: flex; gap: 12px; align-items: center; }
+.stops .has-thumb img { flex: none; width: 112px; height: auto; aspect-ratio: 360 / 202; object-fit: cover; border-radius: 8px; background: var(--contour); }
+.stops li.has-thumb::before { top: calc(50% - 8px); }

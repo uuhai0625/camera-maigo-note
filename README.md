@@ -16,6 +16,7 @@
 
 - ロゴマーク(現在地ピン+レンズ)とアイコン6種(before/stuck/keep/caution/voice/term)の正本は `../tools/brand_assets.py`。`images/`のSVGはgen_pages.pyが書き出す
 - OGP・ロゴPNG・SNS投稿画像は `../tools/export_images.py` でPCのChrome(ヘッドレス)から書き出す。費用なし
+- イラスト・写真(2026-10-03〜)は `images/illust/`・`images/photo/` の WebP。台帳は `../tools/images.py`、変換は `../tools/prep_image.py`(本体・720px版 `-m`・一覧サムネ `-s`)。記事中は原稿に `<!-- IMG:key -->`、アイキャッチとトップの一覧サムネは EYECATCH から自動
   - `base` → `images/ogp.png`・`logo-horizontal.png`・`logo-square-512.png`・`apple-touch-icon.png`
   - `article <slug> "<タイトル>" <before|stuck|keep>` → `<slug>/ogp.png`
   - `x-post "<見出し>" "<本文>" [出典]` / `note "<タイトル>"` → `../design/export/`(uuhai0625の既存アカウントでの先行発信用)

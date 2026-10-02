@@ -53,6 +53,7 @@
     <path d="M40 380 C 200 350, 260 270, 420 270 S 700 320, 1000 230" fill="none" stroke="var(--route)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round" opacity=".4"/>
   </svg>
   <div class="inner">
+  <div class="hero-text">
     <p class="here"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.4 7.5 13.5 7.5 13.5s7.5-8.1 7.5-13.5A7.5 7.5 0 0 0 12 1.5z" fill="var(--pin)"/><circle cx="12" cy="9" r="4.1" fill="var(--surface)"/><circle cx="12" cy="9" r="2.9" fill="var(--sign)"/><circle cx="12" cy="9" r="1.55" fill="none" stroke="var(--surface)" stroke-width=".7"/></svg>現在地をえらんでください</p>
     <h1>いま、カメラのどこで迷ってる?</h1>
     <p class="lead">カメラで迷った人たちの声を調べて、つまずいた場所を地図のようにまとめています。むずかしい言葉は使いません。</p>
@@ -62,14 +63,16 @@
       <a class="signpost" href="#keep"><svg class="signpost-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V3.5"/><path d="M12 5h6l2 2-2 2h-6"/><path d="M12 11H6l-2 2 2 2h6"/><path d="M9 21h6"/></svg><b>続けるか迷ってる</b><span>やめとけ、続かない、恥ずかしい。やめた人の声も続けた人の声も</span></a>
     </nav>
   </div>
+  <figure class="pic hero-art"><img src="images/illust/hero.webp" srcset="images/illust/hero-m.webp 720w, images/illust/hero.webp 1456w" sizes="(max-width: 859px) calc(100vw - 32px), 460px" width="1456" height="816" alt="地図の上でカメラを持って、まわりを見回している人のイラスト" fetchpriority="high" decoding="async"></figure>
+  </div>
 </div>
 <div class="destinations">
   <section class="destination" id="before" aria-labelledby="before-h">
     <h2 id="before-h"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.2 11.5H6.7z"/><path d="M9 8.5V6.5a3 3 0 0 1 6 0v2"/><circle cx="12" cy="14.2" r="2.6"/></svg>買う前に迷ってる</h2>
     <p>本当にいる? スマホで十分? 買って後悔した人の声から考える</p>
     <ul class="stops">
-      <li><a href="koukai-koe/">一眼レフを買ったけど後悔…体験談で目立ったのは性能以外の理由</a></li>
-      <li><a href="smartphone-jubun/">スマホで十分、一眼はいらない?カメラで差が出やすい3つの場面</a></li>
+      <li class="has-thumb"><a href="koukai-koe/"><img src="images/illust/eye-koukai-s.webp" width="360" height="202" alt="" loading="lazy" decoding="async"><span>一眼レフを買ったけど後悔…体験談で目立ったのは性能以外の理由</span></a></li>
+      <li class="has-thumb"><a href="smartphone-jubun/"><img src="images/illust/eye-smart-s.webp" width="360" height="202" alt="" loading="lazy" decoding="async"><span>スマホで十分、一眼はいらない?カメラで差が出やすい3つの場面</span></a></li>
       <li class="soon">中古・型落ちで後悔した人の声と、みんながチェックしていたこと</li>
     </ul>
   </section>
@@ -78,8 +81,8 @@
     <p>重い、設定が多い、オートのまま。よくある止まり方と、ほどき方</p>
     <ul class="stops">
       <li class="soon">「重くて使わなくなった」という声と、みんながしていた対処法</li>
-      <li><a href="auto-sotsugyou/">カメラのオートモードから抜け出せない初心者は、まずPモードから</a></li>
-      <li><a href="kurai-bure/">暗いところで撮れない…室内・夜にブレる・ザラザラになる原因と対策</a></li>
+      <li class="has-thumb"><a href="auto-sotsugyou/"><img src="images/illust/eye-auto-s.webp" width="360" height="202" alt="" loading="lazy" decoding="async"><span>カメラのオートモードから抜け出せない初心者は、まずPモードから</span></a></li>
+      <li class="has-thumb"><a href="kurai-bure/"><img src="images/illust/eye-kurai-s.webp" width="360" height="202" alt="" loading="lazy" decoding="async"><span>暗いところで撮れない…室内・夜にブレる・ザラザラになる原因と対策</span></a></li>
       <li class="soon">写真が暗い・白っぽくなる時の「露出補正」</li>
       <li class="soon">三脚なしで手ブレを減らす持ち方と、シャッタースピードの目安</li>
       <li class="soon">旅行に一眼を持っていくか迷っている人へ</li>
@@ -91,9 +94,9 @@
     <h2 id="keep-h"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V3.5"/><path d="M12 5h6l2 2-2 2h-6"/><path d="M12 11H6l-2 2 2 2h6"/><path d="M9 21h6"/></svg>続けるか迷ってる</h2>
     <p>やめとけ、続かない、恥ずかしい。やめた人の声も続けた人の声も</p>
     <ul class="stops">
-      <li><a href="yametoke/">カメラ趣味はやめとけ?やめた人・続けた人11件の声から理由を数えてみた</a></li>
+      <li class="has-thumb"><a href="yametoke/"><img src="images/illust/eye-yame-s.webp" width="360" height="202" alt="" loading="lazy" decoding="async"><span>カメラ趣味はやめとけ?やめた人・続けた人11件の声から理由を数えてみた</span></a></li>
       <li class="soon">カメラが続かなかった人に多いパターン</li>
-      <li><a href="hazukashii/">カメラを持ち歩くのが恥ずかしいとき、人が試した工夫とその後</a></li>
+      <li class="has-thumb"><a href="hazukashii/"><img src="images/illust/eye-hazu-s.webp" width="360" height="202" alt="" loading="lazy" decoding="async"><span>カメラを持ち歩くのが恥ずかしいとき、人が試した工夫とその後</span></a></li>
     </ul>
   </section>
 </div>
