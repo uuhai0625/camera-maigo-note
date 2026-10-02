@@ -252,3 +252,5 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign); text-dec
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
+
+.aff-px { position: absolute; width: 1px; height: 1px; border: 0; }
