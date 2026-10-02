@@ -1,6 +1,6 @@
-// GA4計測。プロパティは未作成(2026-09-30時点)。作成したらGA_MEASUREMENT_IDに測定IDを入れる。
+// GA4計測。GA4アカウント「uuhai0625」(404607624)配下のプロパティ「カメラ迷子ノート」、ウェブストリーム13951125337(2026-10-03作成)。
 // 相場ノート・副業そろばんと同じ空文字ガード+ローカル除外パターン。
-const GA_MEASUREMENT_ID = '';
+const GA_MEASUREMENT_ID = 'G-TBJ6QNRT25';
 const isLocalDev = ['localhost', '127.0.0.1', ''].includes(location.hostname);
 if (GA_MEASUREMENT_ID && !isLocalDev) {
   const gaScript = document.createElement('script');
