@@ -15,7 +15,9 @@ if (GA_MEASUREMENT_ID && !isLocalDev) {
 
   // 広告カードのクリック計測(どの記事のどの広告がクリックされたかを見るため)
   // aff_slot = 原稿の目印(rental/kaitori)、program = カードの広告名(APEXレンタル等)、keyword = 楽天のときだけ
-  document.addEventListener('click', (e) => {
+  // 中ボタンで新しいタブに開いたときは click が出ないので auxclick でも拾う(スマホの長押しは拾えない=下限値)
+  const onAffClick = (e) => {
+    if (e.type === 'auxclick' && e.button !== 1) return;
     const link = e.target.closest('.aff-card');
     if (!link) return;
     gtag('event', 'affiliate_click', {
@@ -24,5 +26,7 @@ if (GA_MEASUREMENT_ID && !isLocalDev) {
       keyword: link.dataset.rakutenKeyword || '',
       page_path: location.pathname,
     });
-  });
+  };
+  document.addEventListener('click', onAffClick);
+  document.addEventListener('auxclick', onAffClick);
 }

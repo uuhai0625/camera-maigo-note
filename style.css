@@ -9,6 +9,7 @@
   --ink-sub: #4D5E55;
   --contour: #C9D3C4;
   --sign: #2E6B4F;
+  --sign-text: #2E6B4F; /* 暗い背景の上の文字・線用(ダークでは明るくする) */
   --sign-post: #6B7D72;
   --route: #2456A6;
   --pin: #F07A1A;
@@ -39,6 +40,7 @@
     --ink-sub: #A9B8AE;
     --contour: #34453B;
     --sign: #2F7355;
+    --sign-text: #6FC39A;
     --sign-post: #56685D;
     --route: #8DB0EC;
     --pin: #F28A33;
@@ -67,6 +69,8 @@ a { color: var(--route); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--route); outline-offset: 3px; border-radius: 2px; }
 h1, h2, h3 { line-height: 1.45; text-wrap: balance; word-break: auto-phrase; font-weight: 700; }
+.skip-link { position: absolute; left: 8px; top: -60px; z-index: 10; background: var(--surface); color: var(--route); padding: 8px 14px; border-radius: var(--radius); font-weight: 700; }
+.skip-link:focus { top: 8px; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- ヘッダー・フッター ---------- */
@@ -115,12 +119,12 @@ h1, h2, h3 { line-height: 1.45; text-wrap: balance; word-break: auto-phrase; fon
 .signpost b { display: block; font-size: 17px; }
 .signpost span { display: block; font-size: var(--fs-small); line-height: 1.7; margin-top: 4px; }
 .signpost:hover b { text-decoration: underline; text-underline-offset: 4px; }
-.signpost:focus-visible { outline-color: var(--pin); }
+.signpost:focus-visible { outline-color: var(--route); }
 
 /* ---------- トップ: 行き先(記事一覧) ---------- */
 .destinations { max-width: 1040px; margin: 0 auto; padding: 8px var(--gutter) 0; display: grid; gap: 40px; }
 .destination h2 { font-size: var(--fs-h2); margin: 0 0 4px; display: flex; align-items: center; gap: 8px; }
-.destination h2 .icon { color: var(--sign); flex: none; }
+.destination h2 .icon { color: var(--sign-text); flex: none; }
 .destination > p { margin: 0 0 14px; color: var(--ink-sub); max-width: var(--measure); }
 .stops { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 3px dotted var(--route); display: grid; gap: 10px; }
 .stops li { position: relative; }
@@ -144,8 +148,8 @@ h1, h2, h3 { line-height: 1.45; text-wrap: balance; word-break: auto-phrase; fon
 /* 他の人の声(引用)。出典リンク必須 */
 .voice { margin: 20px 0; padding: 14px 18px; background: var(--surface); border-radius: var(--radius); box-shadow: 0 1px 0 var(--shadow); max-width: var(--measure); }
 .voice blockquote { margin: 0; font-size: 17px; line-height: 1.8; }
-.voice blockquote::before { content: "“"; color: var(--sign); font-weight: 700; margin-right: 2px; }
-.voice blockquote::after { content: "”"; color: var(--sign); font-weight: 700; margin-left: 2px; }
+.voice blockquote::before { content: "“"; color: var(--sign-text); font-weight: 700; margin-right: 2px; }
+.voice blockquote::after { content: "”"; color: var(--sign-text); font-weight: 700; margin-left: 2px; }
 .voice figcaption { margin-top: 6px; font-size: var(--fs-small); color: var(--ink-sub); display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 
 /* 表(まとめ表など)。狭い画面では表の中だけ横スクロール */
@@ -193,15 +197,15 @@ h1, h2, h3 { line-height: 1.45; text-wrap: balance; word-break: auto-phrase; fon
 .fig .f-top-t { fill: var(--ink); font-size: 15px; font-weight: 700; }
 .fig .f-route { fill: none; stroke: var(--route); stroke-width: 3; stroke-dasharray: 2 7; stroke-linecap: round; }
 .fig .f-lead { fill: var(--ink-sub); font-size: 13px; font-weight: 700; }
-.fig .f-num { fill: var(--sign); }
+.fig .f-num { fill: var(--sign-text); }
 .fig .f-num-t { fill: var(--on-sign); font-size: 14px; font-weight: 700; }
 .fig .f-name { fill: var(--ink); font-size: 15px; font-weight: 700; }
 .fig .f-how { fill: var(--ink); font-size: 14px; }
 .fig .f-cost { fill: var(--pin-text); font-size: 14px; font-weight: 700; }
-.fig .f-ans { fill: var(--sign); font-size: 15px; font-weight: 700; }
+.fig .f-ans { fill: var(--sign-text); font-size: 15px; font-weight: 700; }
 .fig .f-tag { fill: var(--ink); font-size: 13px; font-weight: 700; }
-.fig .f-s1 { fill: var(--surface); stroke: var(--sign); stroke-width: 2; }
-.fig .f-s2 { fill: var(--bg); stroke: var(--sign); stroke-width: 2; }
+.fig .f-s1 { fill: var(--surface); stroke: var(--sign-text); stroke-width: 2; }
+.fig .f-s2 { fill: var(--bg); stroke: var(--sign-text); stroke-width: 2; }
 .fig .f-s3 { fill: var(--surface); stroke: var(--route); stroke-width: 2; stroke-dasharray: 5 3; }
 .fig .f-s4 { fill: var(--caution-bg); stroke: var(--caution-edge); stroke-width: 1.5; }
 .fig .f-sub { fill: var(--ink-sub); font-size: 13px; font-weight: 500; }
@@ -216,7 +220,7 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign); text-dec
   background: var(--surface); border: 1px solid var(--contour); border-radius: var(--radius);
   color: var(--ink); text-decoration: none;
 }
-.aff-card .pr { grid-column: 1 / -1; font-size: 11px; color: var(--ink-sub); }
+.aff-card .pr { grid-column: 1 / -1; font-size: 12px; color: var(--ink-sub); }
 .aff-card b { font-size: 16px; }
 .aff-card .go { font-size: var(--fs-small); font-weight: 700; color: var(--route); white-space: nowrap; }
 .aff-card:hover b { text-decoration: underline; }
