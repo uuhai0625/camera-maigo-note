@@ -152,13 +152,14 @@ h1, h2, h3 { line-height: 1.45; text-wrap: balance; word-break: auto-phrase; fon
 .voice blockquote::after { content: "”"; color: var(--sign-text); font-weight: 700; margin-left: 2px; }
 .voice figcaption { margin-top: 6px; font-size: var(--fs-small); color: var(--ink-sub); display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 
-/* 表(まとめ表など)。狭い画面では表の中だけ横スクロール */
+/* 表(まとめ表など)。1列目は行の見出し(tbody th)。PC幅では表、狭い画面では行ごとのカードにする */
 .table-wrap { overflow-x: auto; margin: 20px 0; max-width: 100%; }
 .table-wrap table { border-collapse: collapse; font-size: 14px; line-height: 1.7; min-width: 32em; background: var(--surface); }
 .table-wrap th, .table-wrap td { border: 1px solid var(--contour); padding: 6px 10px; text-align: left; vertical-align: top; }
 .table-wrap th { font-weight: 700; background: var(--bg); }
+.table-wrap tbody th { background: var(--surface); }
 .table-wrap td:nth-child(2), .table-wrap td:nth-child(3) { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.table-wrap th:first-child, .table-wrap td:first-child { min-width: 7em; }
+.table-wrap th:first-child { min-width: 7em; }
 .table-wrap td:last-child { min-width: 16em; }
 .table-wrap th:nth-child(2), .table-wrap th:nth-child(3) { min-width: 6em; }
 
@@ -167,14 +168,14 @@ h1, h2, h3 { line-height: 1.45; text-wrap: balance; word-break: auto-phrase; fon
 .table-wrap.text td:last-child { min-width: 14em; }
 
 @media (max-width: 600px) {
-  .table-wrap.text { overflow: visible; }
-  .table-wrap.text table, .table-wrap.text tbody, .table-wrap.text tr, .table-wrap.text td { display: block; min-width: 0; width: 100%; }
-  .table-wrap.text table { background: none; }
-  .table-wrap.text thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .table-wrap.text tr { background: var(--surface); border: 1px solid var(--contour); border-radius: var(--radius); margin-bottom: 10px; padding: 8px 12px; }
-  .table-wrap.text td { border: 0; padding: 2px 0; min-width: 0 !important; }
-  .table-wrap.text td:first-child { font-weight: 700; font-size: 15px; }
-  .table-wrap.text td:not(:first-child)::before { content: attr(data-label) "："; color: var(--ink-sub); font-weight: 700; }
+  .table-wrap { overflow: visible; }
+  .table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap tbody th, .table-wrap td { display: block; min-width: 0 !important; width: 100%; }
+  .table-wrap table { background: none; }
+  .table-wrap thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .table-wrap tr { background: var(--surface); border: 1px solid var(--contour); border-radius: var(--radius); margin-bottom: 10px; padding: 8px 12px; }
+  .table-wrap tbody th, .table-wrap td { border: 0; padding: 2px 0; white-space: normal !important; }
+  .table-wrap tbody th { font-size: 15px; }
+  .table-wrap td::before { content: attr(data-label) "："; color: var(--ink-sub); font-weight: 700; }
 }
 
 /* ⚠注意枠(案A由来)。用語集の【要注意】事項を断定せずに示す */
