@@ -13,11 +13,14 @@ if (GA_MEASUREMENT_ID && !isLocalDev) {
   gtag('js', new Date());
   gtag('config', GA_MEASUREMENT_ID);
 
-  // 楽天リンクのクリック計測(どの記事が実際にクリックを生んでいるかを見るため)
+  // 広告カードのクリック計測(どの記事のどの広告がクリックされたかを見るため)
+  // aff_slot = 原稿の目印(rental/kaitori)、program = カードの広告名(APEXレンタル等)、keyword = 楽天のときだけ
   document.addEventListener('click', (e) => {
     const link = e.target.closest('.aff-card');
     if (!link) return;
     gtag('event', 'affiliate_click', {
+      aff_slot: link.dataset.aff || '',
+      program: link.dataset.program || '',
       keyword: link.dataset.rakutenKeyword || '',
       page_path: location.pathname,
     });
