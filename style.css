@@ -241,18 +241,29 @@ b, strong { font-weight: 700; }
 /* 用語リンク(用語のやさしい解説ページへ) */
 a.term { color: inherit; text-decoration: underline dotted var(--sign-text); text-decoration-thickness: 1.5px; text-underline-offset: 5px; }
 
-/* 広告カード(楽天・A8)。上下の線で区切るだけ */
+/* 広告カード(楽天・A8)。薄い面+上の深緑線+右に塗りのボタン(押せることと外部サイトへ行くことが一目で分かるように) */
 .aff-card {
-  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 16px;
-  margin: 28px 0; max-width: var(--measure); padding: 14px 16px; min-height: 64px;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 16px;
+  margin: 28px 0; max-width: var(--measure); padding: 14px 16px 16px;
   background: var(--panel); border-top: 2px solid var(--sign-text);
   color: var(--ink); text-decoration: none;
 }
 .aff-card .pr { grid-column: 1 / -1; font-size: 12px; color: var(--ink); letter-spacing: .08em; font-weight: 700; }
-.aff-card b { font-size: 16px; }
-.aff-card .go { font-size: var(--fs-small); font-weight: 700; color: var(--sign-text); white-space: nowrap; }
-.aff-card .go::after { content: " ↗"; font-family: var(--font-num); }
+.aff-card .aff-body { display: grid; gap: 0; }
+.aff-card b { font-size: 16px; line-height: 1.6; }
+.aff-card .sub { font-size: 13px; color: var(--ink-sub); line-height: 1.6; }
+.aff-card .go {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--sign); color: var(--on-sign); font-size: 14px; font-weight: 700; letter-spacing: .04em;
+  padding: 10px 16px; border-radius: var(--radius); white-space: nowrap; min-height: 44px;
+}
+.aff-card .go::after { content: "↗"; font-family: var(--font-num); }
+.aff-card:hover .go { filter: brightness(1.15); }
 .aff-card:hover b { text-decoration: underline; }
+@media (max-width: 520px) {
+  .aff-card { grid-template-columns: 1fr; }
+  .aff-card .go { width: 100%; margin-top: 8px; }
+}
 
 /* 次に読む */
 .next { margin: 72px 0 0; }
