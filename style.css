@@ -21,7 +21,7 @@
   --caution: #7A5C14;      /* 注意の文字(黄土・濃) */
   --cost: #8A4B12;         /* 図解の「代わりに」「注意」の文字 */
   --fig-hi: #E6EFE9;       /* 図解で強調する段の面 */
-  --fig-line: #BEBEB5;     /* 図解のカード枠 */
+  --fig-line: #949489;     /* 図解のカード枠 */
   --caution-bg: #F6F2E4;
   --caution-edge: #A8842B;
   --on-sign: #FFFFFF;
@@ -58,7 +58,7 @@
     --caution: #D2B25A;
     --cost: #E0A86A;
     --fig-hi: #22362C;
-    --fig-line: #4A514C;
+    --fig-line: #6A726C;
     --caution-bg: #26231A;
     --caution-edge: #D2B25A;
     --shadow: rgba(0, 0, 0, .3);
@@ -111,7 +111,6 @@ b, strong { font-weight: 700; }
 
 /* ---------- トップ: ヒーロー ---------- */
 .map-hero { position: relative; overflow: hidden; }
-.map-hero .contours { display: none; }
 .map-hero .inner { position: relative; max-width: 1080px; margin: 0 auto; padding: 40px var(--gutter) 56px; }
 .map-hero h1 { font-size: var(--fs-hero); margin: 10px 0 0; line-height: 1.45; }
 .map-hero .lead { color: var(--ink-sub); margin: 14px 0 32px; max-width: var(--measure); font-size: 16px; }
@@ -186,6 +185,7 @@ b, strong { font-weight: 700; }
 .table-wrap td:nth-child(2), .table-wrap td:nth-child(3) { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .table-wrap th:first-child { min-width: 9em; width: 24%; }
 .table-wrap td:last-child { min-width: 14em; }
+.table-wrap td:nth-child(n+4):not(:last-child) { min-width: 7em; } /* 多列の表で中央の列が細くなりすぎないように */
 .table-wrap th:nth-child(2), .table-wrap th:nth-child(3) { min-width: 6em; }
 
 .table-wrap.text table { min-width: 36em; }
@@ -200,6 +200,7 @@ b, strong { font-weight: 700; }
   .table-wrap tbody tr:last-child { border-bottom: 1px solid var(--contour); }
   .table-wrap tbody th, .table-wrap td { border: 0; padding: 3px 0; white-space: normal !important; }
   .table-wrap tbody th { font-size: 15px; margin-bottom: 2px; }
+  .table-wrap th:first-child { width: 100%; } /* 上の width:24% の方が強く、行見出しが細い列に詰まっていた(2026-10-09) */
   .table-wrap td { font-size: 14px; }
   .table-wrap td::before { content: attr(data-label); display: block; color: var(--ink-sub); font-size: 12px; font-weight: 700; line-height: 1.6; }
 }
@@ -300,7 +301,7 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
   body { line-height: 1.85; }
   .signposts { grid-template-columns: 1fr; gap: 8px; }
   .site-nav { font-size: 13px; gap: 0 18px; }
-  .site-nav a { display: inline-block; padding: 8px 0; color: var(--ink); }
+  .site-nav a { display: inline-block; padding: 12px 0; color: var(--ink); }
   .page h2 { margin-top: 52px; }
 }
 /* PC幅のトップの入口は、狭い3列をやめて1行ずつ(アイコン|見出し+説明) */
@@ -345,3 +346,14 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
 
 /* 言葉の意味: その言葉が出てくる記事(2026-10-09) */
 .term-rel { font-size: 14px; color: var(--ink-sub); }
+
+/* タップしやすさ(2026-10-09 デバッグ: 44px・24px未満だった所) */
+.logo { min-height: 44px; }
+.site-footer nav a { display: inline-block; padding: 10px 0; }
+.glossary-index a { display: inline-block; padding: 9px 4px; min-width: 44px; text-align: center; }
+.glossary summary { padding: 10px 0; }
+.breadcrumb a { display: inline-block; padding: 6px 0; }
+.def-note { margin: 12px 0 0; font-size: 14px; color: var(--caution); }
+@media (max-width: 520px) {
+  .caution { flex-direction: column; gap: 4px; }
+}

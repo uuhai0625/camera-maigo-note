@@ -14,7 +14,7 @@ function affiliateUrl(keyword) {
 }
 
 // <a class="aff-card" data-rakuten-keyword="..."> のhrefを、アフィリエイトリンクに差し替える。
-// HTML側のhrefには素の楽天検索URLを書いておくので、JSが動かなくてもリンク自体は機能する。
+// 2026-10-09から build_article.py がHTMLに最初からアフィリエイトURLを書くので、ここは保険(同じURLを書き直すだけ)。
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a.aff-card[data-rakuten-keyword]').forEach((a) => {
     a.href = affiliateUrl(a.dataset.rakutenKeyword);
