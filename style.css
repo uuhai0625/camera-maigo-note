@@ -260,6 +260,12 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
 .aff-card .go::after { content: "↗"; font-family: var(--font-num); }
 .aff-card:hover .go { filter: brightness(1.15); }
 .aff-card:hover b { text-decoration: underline; }
+/* スマホでは hover が無いので、押した瞬間の手応えを出す(2026-10-09 収益導線レビュー) */
+.aff-card:active .go { filter: brightness(.88); transform: translateY(1px); }
+/* ダークでは面が地に溶けるので、細い枠で囲む */
+@media (prefers-color-scheme: dark) {
+  .aff-card { border: 1px solid var(--contour); border-top: 2px solid var(--sign-text); }
+}
 @media (max-width: 520px) {
   .aff-card { grid-template-columns: 1fr; }
   .aff-card .go { width: 100%; margin-top: 8px; }
@@ -336,3 +342,6 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
   .pic img, .stops .has-thumb img { filter: brightness(.82); }
   .pic img[src*="/photo/"] { filter: grayscale(1) brightness(.82); }
 }
+
+/* 言葉の意味: その言葉が出てくる記事(2026-10-09) */
+.term-rel { font-size: 14px; color: var(--ink-sub); }
