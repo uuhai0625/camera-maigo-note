@@ -87,7 +87,7 @@ h1, h2, h3 { line-height: 1.5; text-wrap: balance; word-break: auto-phrase; font
 b, strong { font-weight: 700; }
 .skip-link { position: absolute; left: 8px; top: -60px; z-index: 10; background: var(--surface); color: var(--route); padding: 8px 14px; font-weight: 700; }
 .skip-link:focus { top: 8px; }
-.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- ヘッダー・フッター ---------- */
 .site-header {
@@ -129,7 +129,7 @@ b, strong { font-weight: 700; }
   position: relative; display: block; color: var(--ink); text-decoration: none;
   border-top: 2px solid var(--rule-strong); padding: 14px 2px 4px;
 }
-.signpost::after { content: "→"; position: absolute; right: 2px; top: 14px; color: var(--sign-text); font-family: var(--font-num); }
+.signpost::after { content: "→" / ""; position: absolute; right: 2px; top: 14px; color: var(--sign-text); font-family: var(--font-num); }
 .signpost .signpost-icon { display: block; margin-bottom: 8px; color: var(--sign-text); }
 .signpost b { display: block; font-size: 17px; padding-right: 1.5em; word-break: auto-phrase; }
 .signpost span { display: block; font-size: 14px; line-height: 1.8; margin-top: 4px; color: var(--ink-sub); word-break: auto-phrase; }
@@ -258,8 +258,10 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
   background: var(--sign); color: var(--on-sign); font-size: 14px; font-weight: 700; letter-spacing: .04em;
   padding: 10px 16px; border-radius: var(--radius); white-space: nowrap; min-height: 44px;
 }
-.aff-card .go::after { content: "↗"; font-family: var(--font-num); }
+.aff-card .go::after { content: "↗" / ""; font-family: var(--font-num); }
 .aff-card:hover .go { filter: brightness(1.15); }
+/* ダークは明るくすると白文字のコントラストが4.5:1を下回るので暗くする(2026-10-16) */
+@media (prefers-color-scheme: dark) { .aff-card:hover .go { filter: brightness(.88); } }
 .aff-card:hover b { text-decoration: underline; }
 /* スマホでは hover が無いので、押した瞬間の手応えを出す(2026-10-09 収益導線レビュー) */
 .aff-card:active .go { filter: brightness(.88); transform: translateY(1px); }
@@ -278,7 +280,7 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
 .next ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; max-width: none; }
 .next li + li { margin-top: 0; }
 .next a { display: flex; justify-content: space-between; gap: 12px; color: var(--ink); text-decoration: none; font-weight: 700; padding: 14px 0; border-bottom: 1px solid var(--contour); line-height: 1.7; }
-.next a::after { content: "→"; color: var(--sign-text); font-family: var(--font-num); flex: none; }
+.next a::after { content: "→" / ""; color: var(--sign-text); font-family: var(--font-num); flex: none; }
 .next a:hover { text-decoration: underline; }
 
 /* 書いた人 */
