@@ -21,13 +21,17 @@
   - `article <slug> "<タイトル>" <before|stuck|keep>` → `<slug>/ogp.png`
   - `x-post "<見出し>" "<本文>" [出典]` / `note "<タイトル>"` → `../design/export/`(uuhai0625の既存アカウントでの先行発信用)
 
-## 記事の追加手順
+## 記事の追加手順(2026-10-16 更新。正本は `../記事執筆ガイド.md`)
 
-1. `_template/` をコピーして `<slug>/index.html` を作る(slugは `../tools/gen_pages.py` の `ARTICLES` と合わせる)
-2. テンプレの `noindex`・canonical・og:url・パンくず・現在地チップを記事用に書き換える
-3. 書き方は `../brand.md`(話し方・使わない言葉・公開前チェック)に従う。技術的な説明は `../用語集.md` と照合する
-4. `python tools/export_images.py article <slug> "<タイトル>" <section>` で記事OGPを作り、記事HTMLのog:imageを `<slug>/ogp.png` のURLにする
-5. `ARTICLES` の該当行を `published=True` にして `python tools/gen_pages.py` を実行(トップのリンクと sitemap に反映)
+1. `../原稿/<slug>.md` を書く(1行目 `# タイトル`、2行目 `description: …`)。書き方は `../brand.md` と `../記事執筆ガイド.md`、技術的な説明は `../用語集.md` と照合する
+2. `../tools/gen_pages.py` の `ARTICLES` に行を足す(タイトルは原稿1行目と同じにする。違うとビルドが止まる)。「次に読むなら」は `build_article.py` の `NEXT`
+3. `python tools/export_images.py article <slug> "<改行入りタイトル>" <before|stuck|keep>` で記事OGPを作る
+4. `python tools/build_article.py <slug> <公開日> <更新日>` → `python tools/gen_pages.py`
+   - 日付を省くと、公開済みの記事は今のHTMLの日付を引き継ぐ(新規だけ今日)。更新日を前より古くするとエラー
+   - タイトル不一致・変換されずに残った記法・id重複・ページ内リンク切れ・記事リンク切れ・表の列数違い・注意枠の閉じ忘れ・出典行の重複・未知のAFFキー・レンタル/買取カードの前の注意枠なし、はビルドが止まる
+5. 改題したら、公開済みの全記事をビルドし直す(「次に読むなら」と用語集に旧タイトルが残るため)
+
+`_template/` は見た目の確認用で、記事作成には使わない。
 
 ## ローカル確認
 
