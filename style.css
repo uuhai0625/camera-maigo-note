@@ -357,3 +357,6 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
 @media (max-width: 520px) {
   .caution { flex-direction: column; gap: 4px; }
 }
+
+/* トップ: 買う前の一覧の先頭に入口ページ(2026-10-15) */
+.stops .start a .badge { display: inline-block; margin-right: 10px; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--sign-text); border: 1px solid currentColor; padding: 0 6px; line-height: 1.6; vertical-align: 2px; white-space: nowrap; }
