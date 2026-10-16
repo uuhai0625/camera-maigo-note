@@ -20,6 +20,8 @@ if (GA_MEASUREMENT_ID && !isLocalDev) {
     if (e.type === 'auxclick' && e.button !== 1) return;
     const link = e.target.closest?.('.aff-card');
     if (!link) return;
+    // 楽天のカード(div)は、公式リンク(a)を押したときだけ数える
+    if (link.tagName !== 'A' && !e.target.closest('a')) return;
     gtag('event', 'affiliate_click', {
       aff_slot: link.dataset.aff || '',
       program: link.dataset.program || '',
