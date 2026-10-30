@@ -282,6 +282,22 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
 .next a { display: flex; justify-content: space-between; gap: 12px; color: var(--ink); text-decoration: none; font-weight: 700; padding: 14px 0; border-bottom: 1px solid var(--contour); line-height: 1.7; }
 .next a::after { content: "→" / ""; color: var(--sign-text); font-family: var(--font-num); flex: none; }
 .next a:hover { text-decoration: underline; }
+.next + .next { margin-top: 40px; }
+
+/* 長い記事の目次・畳む箱(2026-10-30 デザインレビュー) */
+.page details.toc, .page details.terms { max-width: var(--measure); margin: 0 0 1.6em; border: 1px solid var(--contour); border-radius: var(--radius); background: var(--surface); }
+.page details.toc summary, .page details.terms summary { cursor: pointer; padding: 12px 16px; font-weight: 700; color: var(--sign-text); }
+.page details.toc ol { margin: 0; padding: 0 16px 14px 2.2em; font-size: 15px; }
+.page details.toc li { line-height: 1.6; margin: 6px 0; }
+.page details.terms > :not(summary) { margin: 0 16px 14px; font-size: 15px; }
+.page details.terms ul { padding-left: 1.2em; }
+.page details.sources > summary { cursor: pointer; list-style: none; }
+.page details.sources > summary::-webkit-details-marker { display: none; }
+.page details.sources > summary h2 { display: flex; justify-content: space-between; gap: 12px; }
+.page details.sources > summary h2::after { content: "開く ▾" / ""; font-size: 14px; color: var(--sign-text); font-weight: 700; align-self: center; flex: none; }
+.page details.sources[open] > summary h2::after { content: "閉じる ▴" / ""; }
+.page details.sources[open] { font-size: 14px; }
+.page details.sources[open] p, .page details.sources[open] li { line-height: 1.6; }
 
 /* 書いた人 */
 .writer { margin: 56px 0 0; padding: 18px 0 0; border-top: 1px solid var(--contour); font-size: 13px; line-height: 1.9; color: var(--ink-sub); max-width: var(--measure); }
