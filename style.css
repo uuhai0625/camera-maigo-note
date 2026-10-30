@@ -399,3 +399,7 @@ a.term { color: inherit; text-decoration: underline dotted var(--sign-text); tex
 .aff-card.rk .go::after { padding-right: 16px; }
 .aff-card.rk .go a:focus-visible { outline: 2px solid var(--on-sign); outline-offset: 2px; }
 .aff-card.rk:hover b { text-decoration: none; }
+/* 楽天のaタグは公式出力のまま変えられないので、当たり判定だけカード全体に広げる(2026-10-31 事業レビュー) */
+.aff-card.rk { position: relative; }
+.aff-card.rk .go a::before { content: ""; position: absolute; inset: 0; }
+.aff-card.rk:hover .go { filter: brightness(1.15); }
