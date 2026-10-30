@@ -163,6 +163,19 @@ b, strong { font-weight: 700; }
 .page p, .page ul, .page ol { max-width: var(--measure); }
 .page p { margin: 0 0 1.4em; }
 .page li { line-height: 1.85; }
+
+/* 要点を見つけやすく(2026-10-30 kuro「読みづらい」→要点が分からない・見た目) */
+.page .point { max-width: var(--measure); margin: 0 0 1.6em; padding: 14px 18px; background: var(--fig-hi); border-left: 4px solid var(--sign); border-radius: var(--radius); }
+.page .point .point-label { display: block; font-size: 13px; letter-spacing: .08em; color: var(--sign-text); margin-bottom: 4px; }
+.page .point p { margin: 0; font-size: 17px; line-height: 1.8; }
+.page .point p + p { margin-top: .6em; }
+.page .point ul { margin: .5em 0 0; padding-left: 1.2em; }
+.page .point li { font-size: 16px; line-height: 1.75; }
+.page .point li + li { margin-top: .3em; }
+.page .note { max-width: var(--measure); margin: 0 0 1.6em; }
+.page .note p { font-size: 14px; line-height: 1.75; color: var(--ink-sub); margin: 0 0 .6em; }
+.page p strong { background: linear-gradient(transparent 60%, var(--fig-hi) 60%); }
+.page p a:not(.term) { text-decoration-color: color-mix(in srgb, var(--route) 40%, transparent); }
 .page li + li { margin-top: .7em; }
 .page ul, .page ol { padding-left: 1.3em; }
 .page ol li::marker { font-family: var(--font-num); font-weight: 700; color: var(--sign-text); }
