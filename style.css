@@ -215,7 +215,9 @@ b, strong { font-weight: 700; }
   .table-wrap tbody th { font-size: 15px; margin-bottom: 2px; }
   .table-wrap th:first-child { width: 100%; } /* 上の width:24% の方が強く、行見出しが細い列に詰まっていた(2026-10-09) */
   .table-wrap td { font-size: 14px; }
-  .table-wrap td::before { content: attr(data-label); display: block; color: var(--ink-sub); font-size: 12px; font-weight: 700; line-height: 1.6; }
+  .table-wrap td::before { content: attr(data-label); display: inline; margin-right: .6em; color: var(--ink-sub); font-size: 12px; font-weight: 700; line-height: 1.6; }
+  /* 小見出しの行(「本体」等)の空のセルは、列名だけが並ぶので出さない(2026-11-12) */
+  .table-wrap td:empty { display: none; }
 }
 
 /* 注意枠。用語集の【要注意】事項を断定せずに示す */
